@@ -3,7 +3,6 @@
 use App\Http\Controllers\MedicoController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::resource('medicos',MedicoController::class);
+Route::get('/', [MedicoController::class, 'index']);
+Route::get('/medicos', [MedicoController::class, 'index'])->name('medicos.index');
+Route::get('/medicos/{id}', [MedicoController::class, 'show'])->name('medicos.show');
