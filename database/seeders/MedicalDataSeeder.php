@@ -2,48 +2,43 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Seeder;
 use App\Models\Especialidad;
 use App\Models\Paciente;
-use Illuminate\Database\Seeder;
+use App\Models\Medico;
+use App\Models\Cita;
 
 class MedicalDataSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        // Crear especialidades
+        /* =========================
+           ESPECIALIDADES
+        ==========================*/
         $especialidades = [
             [
                 'nombre' => 'Cardiología',
-                'descripcion' => 'Especialidad médica dedicada al diagnóstico y tratamiento de enfermedades del corazón y sistema circulatorio',
+                'descripcion' => 'Tratamiento del corazón',
                 'codigo' => 'CAR-001',
                 'area_medica' => 'Cardiovascular'
             ],
             [
                 'nombre' => 'Neurología',
-                'descripcion' => 'Especialidad que estudia y trata enfermedades del sistema nervioso',
+                'descripcion' => 'Sistema nervioso',
                 'codigo' => 'NEU-001',
-                'area_medica' => 'Sistema Nervioso'
+                'area_medica' => 'Neurología'
             ],
             [
                 'nombre' => 'Pediatría',
-                'descripcion' => 'Especialidad médica que se encarga del cuidado de la salud de los niños',
+                'descripcion' => 'Salud infantil',
                 'codigo' => 'PED-001',
                 'area_medica' => 'Medicina Infantil'
             ],
             [
                 'nombre' => 'Dermatología',
-                'descripcion' => 'Especialidad que se dedica al estudio y tratamiento de enfermedades de la piel',
+                'descripcion' => 'Enfermedades de la piel',
                 'codigo' => 'DER-001',
                 'area_medica' => 'Piel'
-            ],
-            [
-                'nombre' => 'Oftalmología',
-                'descripcion' => 'Especialidad que trata las enfermedades del ojo y la visión',
-                'codigo' => 'OFT-001',
-                'area_medica' => 'Ojos'
             ]
         ];
 
@@ -51,57 +46,39 @@ class MedicalDataSeeder extends Seeder
             Especialidad::create($especialidad);
         }
 
-        // Crear pacientes
+        /* =========================
+           PACIENTES
+        ==========================*/
         $pacientes = [
             [
-                'nombre' => 'Juan Pérez García',
-                'email' => 'juan.perez@example.com',
-                'telefono' => '+593987654321',
-                'fecha_nacimiento' => '1990-05-15',
-                'cedula' => '1234567890',
+                'nombre' => 'Juan Pérez',
+                'email' => 'juan@gmail.com',
+                'telefono' => '0991111111',
+                'fecha_nacimiento' => '1990-05-10',
+                'cedula' => '1723456789',
                 'ciudad' => 'Quito',
-                'direccion' => 'Calle Principal 123, Apto 4B',
-                'historia_medica' => 'Paciente con antecedentes de hipertensión, bajo control. Alérgico a Penicilina.'
+                'direccion' => 'Av. Amazonas',
+                'historia_medica' => 'Hipertensión'
             ],
             [
-                'nombre' => 'María García López',
-                'email' => 'maria.garcia@example.com',
-                'telefono' => '+593987654322',
-                'fecha_nacimiento' => '1985-03-20',
-                'cedula' => '0987654321',
-                'ciudad' => 'Cuenca',
-                'direccion' => 'Avenida Central 456',
-                'historia_medica' => 'Paciente con migrañas recurrentes. Diabetes tipo 2 controlada.'
-            ],
-            [
-                'nombre' => 'Carlos Rodríguez Martínez',
-                'email' => 'carlos.rodriguez@example.com',
-                'telefono' => '+593987654323',
-                'fecha_nacimiento' => '1992-07-10',
-                'cedula' => '1122334455',
-                'ciudad' => 'Ambato',
-                'direccion' => 'Calle de la Paz 789',
-                'historia_medica' => 'Sin antecedentes médicos relevantes. Última revisión hace 2 años.'
-            ],
-            [
-                'nombre' => 'Ana Martínez Silva',
-                'email' => 'ana.martinez@example.com',
-                'telefono' => '+593987654324',
-                'fecha_nacimiento' => '1988-11-30',
-                'cedula' => '5566778899',
+                'nombre' => 'María Torres',
+                'email' => 'maria@gmail.com',
+                'telefono' => '0982222222',
+                'fecha_nacimiento' => '1988-08-20',
+                'cedula' => '1721112233',
                 'ciudad' => 'Guayaquil',
-                'direccion' => 'Barrio Las Flores 321',
-                'historia_medica' => 'Paciente con asma controlado. Antecedentes de rinitis alérgica.'
+                'direccion' => 'Av. 9 de Octubre',
+                'historia_medica' => 'Asma'
             ],
             [
-                'nombre' => 'Roberto López Fernández',
-                'email' => 'roberto.lopez@example.com',
-                'telefono' => '+593987654325',
-                'fecha_nacimiento' => '1980-02-14',
-                'cedula' => '9988776655',
-                'ciudad' => 'Manta',
-                'direccion' => 'Paseo Marítimo 654',
-                'historia_medica' => 'Paciente con colesterol elevado. Requiere monitoreo periódico.'
+                'nombre' => 'Carlos Mena',
+                'email' => 'carlos@gmail.com',
+                'telefono' => '0973333333',
+                'fecha_nacimiento' => '1995-03-15',
+                'cedula' => '1712345678',
+                'ciudad' => 'Cuenca',
+                'direccion' => 'Centro Histórico',
+                'historia_medica' => 'Sin antecedentes'
             ]
         ];
 
@@ -109,6 +86,78 @@ class MedicalDataSeeder extends Seeder
             Paciente::create($paciente);
         }
 
-        $this->command->info('Datos médicos insertados exitosamente');
+        /* =========================
+           MÉDICOS
+        ==========================*/
+        $medicos = [
+            [
+                'nombre' => 'Dr. Carlos Ruiz',
+                'cedula' => '1710000001',
+                'telefono' => '0994444444',
+                'email' => 'cruiz@hospital.com',
+                'especialidad_id' => 1
+            ],
+            [
+                'nombre' => 'Dra. Ana Gómez',
+                'cedula' => '1710000002',
+                'telefono' => '0985555555',
+                'email' => 'agomez@hospital.com',
+                'especialidad_id' => 2
+            ],
+            [
+                'nombre' => 'Dr. Luis Andrade',
+                'cedula' => '1710000003',
+                'telefono' => '0976666666',
+                'email' => 'landrade@hospital.com',
+                'especialidad_id' => 3
+            ],
+            [
+                'nombre' => 'Dra. Paula Silva',
+                'cedula' => '1710000004',
+                'telefono' => '0967777777',
+                'email' => 'psilva@hospital.com',
+                'especialidad_id' => 4
+            ]
+        ];
+
+        foreach ($medicos as $medico) {
+            Medico::create($medico);
+        }
+
+        /* =========================
+           CITAS
+        ==========================*/
+        $citas = [
+            [
+                'paciente_id' => 1,
+                'medico_id' => 1,
+                'fecha' => now()->addDays(1),
+                'motivo' => 'Chequeo cardiológico'
+            ],
+            [
+                'paciente_id' => 2,
+                'medico_id' => 2,
+                'fecha' => now()->addDays(2),
+                'motivo' => 'Dolor de cabeza'
+            ],
+            [
+                'paciente_id' => 3,
+                'medico_id' => 3,
+                'fecha' => now()->addDays(3),
+                'motivo' => 'Control pediátrico'
+            ],
+            [
+                'paciente_id' => 1,
+                'medico_id' => 4,
+                'fecha' => now()->addDays(4),
+                'motivo' => 'Problemas de la piel'
+            ]
+        ];
+
+        foreach ($citas as $cita) {
+            Cita::create($cita);
+        }
+
+        $this->command->info('Datos médicos insertados correctamente');
     }
 }
