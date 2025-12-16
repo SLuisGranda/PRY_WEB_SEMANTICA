@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\CitaController;
 
 
 Route::get('/pacientes/{id}', [PacienteController::class, 'show']);
+Route::get('/medicos', [MedicoController::class, 'index']);
 Route::get('/medicos/{id}', [MedicoController::class, 'show']);
 Route::get('/especialidades/{id}', [EspecialidadController::class, 'show']);
 Route::get('/citas/{id}', [CitaController::class, 'show']);
