@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualización JSON-LD</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 30px;
+        }
+        h1 {
+            color: #1f2937;
+        }
+        pre {
+            background: #111827;
+            color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+        button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Respuesta JSON-LD desde la API</h1>
+
+<button onclick="cargarJSONLD()">Cargar JSON-LD</button>
+
+<pre id="resultado">Presiona el botón para cargar el JSON-LD...</pre>
+
+<script>
+fetch('http://127.0.0.1:8000/pacientes/2')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('resultado').textContent = data;
+    })
+    .catch(error => {
+        document.getElementById('resultado').textContent =
+            'Error al cargar el JSON-LD';
+    });
+</script>
+
+</body>
+</html>
