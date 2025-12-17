@@ -142,7 +142,7 @@ Esto permite acceder al archivo directamente desde el navegador sin necesidad de
 
 ### 🔗 Endpoint consumido (ejemplo)
 
-- http://127.0.0.1:8000/api/pacientes/1
+- http://127.0.0.1:8000/pacientes/1
 
 ### 🧪 Acceso desde el navegador
 Una vez levantado el servidor de Laravel, la prueba se realiza accediendo a:
