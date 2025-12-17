@@ -85,32 +85,26 @@ Se utilizó el vocabulario oficial de **Schema.org** para describir las entidade
   "medicalSpecialty": "Cardiología"
 }
 
----
 
+
+```
 ▶️ Ejecución del Proyecto
 
-## Clonar el repositorio
+Clonar el repositorio
+git clone https://github.com/tu-repositorio.git
 
 Instalar dependencias
-
 composer install
 
----
-
 Configurar el archivo .env
+cp .env.example .env
+php artisan key:generate
 
 Ejecutar migraciones y seeders
-
 php artisan migrate --seed
 
----
-
 Iniciar el servidor
-
 php artisan serve
-
----
-
 
 
 
