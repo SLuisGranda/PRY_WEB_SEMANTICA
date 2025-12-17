@@ -55,7 +55,7 @@ Estas rutas muestran información en formato HTML e incluyen metadatos semántic
 | Médico | http://127.0.0.1:8000/api/medicos/{id} |
 | Paciente | http://127.0.0.1:8000/api/pacientes/{id} |
 | Especialidad | http://127.0.0.1:8000/api/especialidades/{id} |
-| Cita Médica | http://127.0.0.1:8000/api/citas/{id} |
+| Cita Médica | http://127.0.0.1:8000/api/citas/1 |
 
 Estas rutas devuelven respuestas en formato **JSON-LD**, compatibles con estándares de Web Semántica.
 
