@@ -7,7 +7,7 @@ use App\Http\Controllers\CitaController;
 use App\Http\Controllers\EspecialidadController;
 
 Route::get('/', function () {
-    ;
+    return view('welcome');
 });
 
 // MÉDICOS (WEB)
