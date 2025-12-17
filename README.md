@@ -52,10 +52,10 @@ Estas rutas muestran información en formato HTML e incluyen metadatos semántic
 
 | Recurso | URL |
 |------|-----|
-| Médico | http://127.0.0.1:8000/medicos/{id} |
-| Paciente | http://127.0.0.1:8000/pacientes/{id} |
+| Médico | http://127.0.0.1:8000/medicos/2 |
+| Paciente | http://127.0.0.1:8000/pacientes/2 |
 | Especialidad | http://127.0.0.1:8000/especialidades/{id} |
-| Cita Médica | http://127.0.0.1:8000/citas/1 |
+| Cita Médica | http://127.0.0.1:8000/citas/{id} |
 
 Estas rutas devuelven respuestas en formato **JSON-LD**, compatibles con estándares de Web Semántica.
 
@@ -112,6 +112,49 @@ Iniciar el servidor
 ---
 php artisan serve
 
+------
 
 
+## 🌐 Prueba de la API sin Postman (Web Simple con HTML + JavaScript)
 
+Para cumplir con el requerimiento de **probar la API sin utilizar Postman**, se implementó una **aplicación web simple** usando **HTML + JavaScript + Fetch API**, la cual consume directamente los endpoints de la API y muestra automáticamente la respuesta en formato **JSON-LD**.
+
+---
+
+### 📁 Ubicación del archivo
+El archivo se encuentra en la carpeta pública del proyecto:
+
+- public/jsonld.html
+  
+---
+
+Esto permite acceder al archivo directamente desde el navegador sin necesidad de controladores adicionales.
+
+---
+
+### ⚙️ Funcionamiento
+- La página utiliza **Fetch API** para realizar una petición HTTP `GET` al endpoint de la API.
+- La respuesta recibida está en formato **JSON-LD**, cumpliendo con los estándares de Web Semántica.
+- El contenido JSON-LD se muestra automáticamente en la página web.
+- No se utiliza Postman ni herramientas externas para probar la API.
+
+---
+
+### 🔗 Endpoint consumido (ejemplo)
+
+- http://127.0.0.1:8000/api/pacientes/1
+
+### 🧪 Acceso desde el navegador
+Una vez levantado el servidor de Laravel, la prueba se realiza accediendo a:
+
+- http://127.0.0.1:8000/jsonld.html
+
+ ---
+
+### ✅ Resultado
+La página web muestra correctamente la **respuesta real de la API en formato JSON-LD**, demostrando el funcionamiento de la Web Semántica y el consumo de la API mediante una aplicación web simple.
+
+Este enfoque cumple con el requerimiento de:
+- Evitar Postman.
+- Consumir la API desde una aplicación web.
+- Visualizar respuestas JSON-LD automáticamente.
